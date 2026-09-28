@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Belajar WEB">
+  <title>Belajar WEB</title>
+
+  <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-800">
+
+  <!-- NAVBAR -->
+  <header class="bg-brand-900 text-white shadow-md">
+    <nav
+      class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4"
+      aria-label="Navigasi utama"
+    >
+      <a href="#beranda" class="text-xl font-bold">
+        Belajar<span class="text-brand-200">WEB</span>
+      </a>
+
+      <ul class="flex items-center gap-5 text-sm font-medium">
+        <li>
+          <a href="#beranda" class="hover:text-brand-200">Home</a>
+        </li>
+        <li>
+          <a href="#tentang" class="hover:text-brand-200">About</a>
+        </li>
+        <li>
+          <a href="#kontak" class="hover:text-brand-200">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="beranda">
+
+    <!-- HERO SECTION -->
+    <section
+      class="bg-brand-700 px-5 py-20 text-center text-white sm:py-24"
+    >
+      <div class="mx-auto max-w-3xl">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-100">
+          tes
+        </p>
+
+        <h1 class="text-4xl font-extrabold leading-tight sm:text-5xl">
+          Belajar WEB SEPUH
+        </h1>
+
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brand-100 sm:text-lg">
+          Belajar WEB buat pemula
+        </p>
+
+        <a
+          href="#materi"
+          class="mt-8 inline-flex rounded-lg bg-white px-6 py-3 font-semibold text-brand-700 shadow transition hover:bg-brand-50"
+        >
+          Mulai Belajar
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section
+      id="tentang"
+      class="mx-auto max-w-6xl px-5 py-14 text-center sm:py-16"
+    >
+      <h2 class="text-3xl font-bold text-brand-900">
+        About Us
+      </h2>
+
+      <p class="mx-auto mt-4 max-w-2xl leading-7 text-slate-600">
+        Kami cuma coba coba untuk belajar Tailwind css 
+      </p>
+    </section>
+
+    <!-- CARD SECTION -->
+    <section id="materi" class="bg-brand-50 px-5 py-14 sm:py-16">
+      <div class="mx-auto max-w-6xl">
+
+        <div class="mb-9 text-center">
+          <p class="text-sm font-bold uppercase tracking-widest text-brand-600">
+            Materi
+          </p>
+
+          <h2 class="mt-2 text-3xl font-bold text-brand-900">
+            Jelajahi Materi Belajar
+          </h2>
+
+          <p class="mt-3 text-slate-600">
+            Setiap kartu memiliki topik, deskripsi, dan gambar berbeda.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- CARD 1 -->
+          <article
+            class="overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <img
+              src="./image/images.jpeg"
+              alt="Ilustrasi belajar dan pengembangan web"
+              class="h-48 w-full object-cover"
+              loading="lazy"
+            >
+
+            <div class="p-6">
+              <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700">
+                Card 1
+              </span>
+
+              <h3 class="mt-4 text-xl font-bold text-slate-900">
+                HTML Semantik
+              </h3>
+
+              <p class="mt-3 leading-7 text-slate-600">
+                APA YAA
+              </p>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article
+            class="overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <img
+              src="./image/images2.jpeg"
+              alt="Kode pemrograman pada layar komputer"
+              class="h-48 w-full object-cover"
+              loading="lazy"
+            >
+
+            <div class="p-6">
+              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">
+                Card 2
+              </span>
+
+              <h3 class="mt-4 text-xl font-bold text-slate-900">
+                Utility Class
+              </h3>
+
+              <p class="mt-3 leading-7 text-slate-600">
+                cuma belajar tailwind css
+              </p>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article
+            class="overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <img
+              src="./image/images3.jpeg"
+              alt="Perangkat untuk desain web responsif"
+              class="h-48 w-full object-cover"
+              loading="lazy"
+            >
+
+            <div class="p-6">
+              <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+                Card 3
+              </span>
+
+              <h3 class="mt-4 text-xl font-bold text-slate-900">
+                Responsive Layout
+              </h3>
+
+              <p class="mt-3 leading-7 text-slate-600">
+                WEB Modul 1
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section
+      id="kontak"
+      class="mx-auto max-w-3xl px-5 py-14 sm:py-16"
+    >
+      <div class="rounded-2xl bg-white p-6 shadow-md sm:p-8">
+
+        <h2 class="text-center text-2xl font-bold text-brand-900">
+          Contact Us
+        </h2>
+
+        <p class="mt-2 text-center text-slate-600">
+          Kirim pertanyaan atau saran melalui formulir berikut.
+        </p>
+
+        <form action="#" method="post" class="mt-7 space-y-5">
+
+          <div>
+            <label
+              for="nama"
+              class="mb-2 block text-sm font-semibold text-slate-700"
+            >
+              Nama
+            </label>
+
+            <input
+              id="nama"
+              name="nama"
+              type="text"
+              placeholder="Masukkan nama Anda"
+              required
+              class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+            >
+          </div>
+
+          <div>
+            <label
+              for="email"
+              class="mb-2 block text-sm font-semibold text-slate-700"
+            >
+              Email
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="nama@email.com"
+              required
+              class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+            >
+          </div>
+
+          <div>
+            <label
+              for="pesan"
+              class="mb-2 block text-sm font-semibold text-slate-700"
+            >
+              Pesan
+            </label>
+
+            <textarea
+              id="pesan"
+              name="pesan"
+              rows="4"
+              placeholder="Tulis pesan Anda..."
+              required
+              class="w-full resize-y rounded-lg border border-slate-300 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-brand-600 px-5 py-3 font-semibold text-white transition hover:bg-brand-700 sm:w-auto"
+          >
+            Kirim Pesan
+          </button>
+
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-900 px-5 py-6 text-center text-sm text-brand-100">
+    <p>
+      &copy; 2026 Learn Tailwind CSS.
+      Dibuat untuk latihan Modul 1 Pemrograman Web.
+    </p>
+  </footer>
+
+</body>
+</html>
