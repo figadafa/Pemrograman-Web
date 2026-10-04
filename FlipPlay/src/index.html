@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlipPlay - Entertainment Platform</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans">
+    
+    <header class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-50 border-b border-slate-800">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-indigo-500">FlipPlay</div>
+                
+                <!-- Hamburger Button -->
+                <button id="menu-btn" class="md:hidden p-2 text-slate-300 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="hover:text-indigo-400 transition">Home</a>
+                    <a href="#features" class="hover:text-indigo-400 transition">Features</a>
+                    <a href="#explore" class="hover:text-indigo-400 transition">Explore</a>
+                    <a href="#contact" class="hover:text-indigo-400 transition">Contact</a>
+                    <button class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-full font-medium transition">Get Started</button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 space-y-3">
+                <a href="#home" class="block py-2 hover:text-indigo-400">Home</a>
+                <a href="#features" class="block py-2 hover:text-indigo-400">Features</a>
+                <a href="#explore" class="block py-2 hover:text-indigo-400">Explore</a>
+                <a href="#contact" class="block py-2 hover:text-indigo-400">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="container mx-auto px-4 py-16 md:py-24 text-center">
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">Your World of <span class="text-indigo-500">Entertainment</span></h1>
+            <p class="text-base md:text-xl text-slate-400 mb-8 max-w-2xl mx-auto px-2">Stream your favorite anime and drama, and discover manga and light novels in one place.</p>
+            <a href="#explore" class="inline-block bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-full text-lg font-bold transition">Explore Now</a>
+        </section>
+
+        <section id="features" class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Platform Features</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-6 bg-slate-800 rounded-xl border border-slate-700">
+                        <h3 class="text-lg font-semibold mb-2">Video Streaming</h3>
+                        <p class="text-sm text-slate-400">Nikmati anime dan drama favorit dalam satu platform.</p>
+                    </div>
+                    <div class="p-6 bg-slate-800 rounded-xl border border-slate-700">
+                        <h3 class="text-lg font-semibold mb-2">Digital Reading</h3>
+                        <p class="text-sm text-slate-400">Baca manga dan light novel dengan nyaman.</p>
+                    </div>
+                    <div class="p-6 bg-slate-800 rounded-xl border border-slate-700">
+                        <h3 class="text-lg font-semibold mb-2">Personalized</h3>
+                        <p class="text-sm text-slate-400">Temukan konten sesuai minat pengguna.</p>
+                    </div>
+                    <div class="p-6 bg-slate-800 rounded-xl border border-slate-700">
+                        <h3 class="text-lg font-semibold mb-2">All-in-One</h3>
+                        <p class="text-sm text-slate-400">Satu platform untuk berbagai jenis hiburan digital.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="explore" class="container mx-auto px-4 py-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Explore Categories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-indigo-500 transition text-center">
+                    <h3 class="font-bold text-lg">Anime</h3>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-indigo-500 transition text-center">
+                    <h3 class="font-bold text-lg">Drama</h3>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-indigo-500 transition text-center">
+                    <h3 class="font-bold text-lg">Manga</h3>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-indigo-500 transition text-center">
+                    <h3 class="font-bold text-lg">Light Novel</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container mx-auto px-4 py-16">
+            <div class="max-w-xl mx-auto bg-slate-900 p-6 md:p-8 rounded-2xl border border-slate-800">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">Contact Us</h2>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block mb-2 text-sm">Nama</label>
+                        <input type="text" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm">Email</label>
+                        <input type="email" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm">Pesan</label>
+                        <textarea class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 h-32 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+                    </div>
+                    <button class="w-full bg-indigo-600 py-3 rounded-lg font-bold hover:bg-indigo-700 transition">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 FlipPlay. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
