@@ -2,103 +2,84 @@
 
 declare(strict_types=1);
 
-/**
- * Autoloader sederhana untuk memetakan namespace App ke folder src/
- */
-spl_autoload_register(function ($class) {
-    // Prefix namespace yang kita gunakan
+spl_autoload_register(function (string $class): void {
     $prefix = 'App\\';
-    // Base directory untuk prefix namespace
-    $base_dir = __DIR__ . '/src/';
+    $baseDir = __DIR__ . '/src/';
 
-    // Apakah class menggunakan prefix namespace?
-    $len = strlen($prefix);
-    if (strncmp($prefix, $class, $len) !== 0) {
-        // Jika tidak, biarkan autoloader lain (jika ada) yang menangani
-        return;
-    }
+    if (str_starts_with($class, $prefix)) {
+        $relativeClass = substr($class, strlen($prefix));
+        $file = $baseDir . str_replace('\\', '/', $relativeClass) . '.php';
 
-    // Ambil relative class name
-    $relative_class = substr($class, $len);
-
-    // Ganti pemisah namespace dengan pemisah direktori, tambahkan akhiran .php
-    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
-
-    // Jika file ada, require
-    if (file_exists($file)) {
-        require $file;
+        if (file_exists($file)) {
+            require_once $file;
+        }
     }
 });
 
-use App\Models\Movie;
-use App\Models\Music;
+use App\Models\Anime;
+use App\Models\Drama;
+use App\Models\Manga;
+use App\Models\LightNovel;
 use App\Models\User;
-use App\Services\Library;
+use App\Services\FlipPlay;
 
-// Inisialisasi Library
-$library = new Library();
+$flipPlay = new FlipPlay();
 
-echo "=== 1. MENAMBAHKAN MEDIA KE LIBRARY ===\n";
-$library->add(new Movie("Inception", "Christopher Nolan", 2010, 148, "Sci-Fi"));
-$library->add(new Movie("The Dark Knight", "Christopher Nolan", 2008, 152, "Action"));
-$library->add(new Music("Bohemian Rhapsody", "Queen", 1975, "A Night at the Opera"));
-$library->add(new Music("Shape of You", "Ed Sheeran", 2017, "Divide"));
-echo "Berhasil menambahkan 2 Film dan 2 Musik ke perpustakaan.\n\n";
+$flipPlay->addContent(
+    new Anime("Attack on Titan", "Hajime Isayama", 2013, 24, "MAPPA")
+);
 
-echo "=== 2. DAFTAR SEMUA MEDIA ===\n";
-foreach ($library->listAll() as $item) {
-    echo "[{$item->getType()}] {$item->getDetail()}\n";
+$flipPlay->addContent(
+    new Drama("Moving", "Kang Full", 2023, 60, "Korea Selatan")
+);
+
+$flipPlay->addContent(
+    new Manga("One Piece", "Eiichiro Oda", 1997, 1100, "Adventure")
+);
+
+$flipPlay->addContent(
+    new LightNovel("Overlord", "Kugane Maruyama", 2012, 100, 16)
+);
+
+echo "=== KATALOG FLIPPLAY ===\n";
+
+foreach ($flipPlay->getAllContent() as $media) {
+    echo $media->getCategory() . " - ";
+    echo $media->getTitle() . "\n";
 }
-echo "\n";
 
-echo "=== 3. PENCARIAN MEDIA BERDASARKAN JUDUL ===\n";
-$keyword = "Knight";
-echo "Mencari dengan kata kunci: '{$keyword}'...\n";
-$searchResults = $library->findByTitle($keyword);
+echo "\n=== PENCARIAN KONTEN ===\n";
 
-if (empty($searchResults)) {
-    echo "Media tidak ditemukan.\n";
-} else {
-    foreach ($searchResults as $result) {
-        echo "Ditemukan: [{$result->getType()}] {$result->getTitle()}\n";
-    }
+$results = $flipPlay->findByTitle("One");
+
+foreach ($results as $media) {
+    echo $media->getTitle() . "\n";
 }
-echo "\n";
 
-echo "=== 4. DETAIL SATU MEDIA ===\n";
-$mediaId = 3;
-$media = $library->findById($mediaId);
-if ($media) {
-    echo "Detail Media ID {$mediaId}:\n";
+echo "\n=== DETAIL KONTEN ===\n";
+
+$media = $flipPlay->findById(1);
+
+if ($media !== null) {
     echo $media->getDetail() . "\n";
 }
-echo "\n";
 
-echo "=== 5. USER MEMINJAM MEDIA ===\n";
+echo "\n=== KONTEN KATEGORI MANGA ===\n";
+
+foreach ($flipPlay->getByCategory("Manga") as $media) {
+    echo $media->getTitle() . "\n";
+}
+
 $user = new User("Budi");
-echo "User '{$user->getName()}' meminjam 'Inception' (ID 1) dan 'Bohemian Rhapsody' (ID 3)...\n";
 
-$library->borrow(1, $user);
-$library->borrow(3, $user);
+echo "\n=== SIMULASI MENONTON KONTEN ===\n";
 
-echo "Koleksi '{$user->getName()}' sekarang:\n";
-foreach ($user->getCollection() as $item) {
-    echo "- [{$item->getType()}] {$item->getTitle()}\n";
+if ($flipPlay->playContent(1, $user)) {
+    echo $user->getName() . " memilih konten Attack on Titan\n";
 }
-echo "\n";
 
-echo "=== 6. MENGEMBALIKAN MEDIA ===\n";
-echo "User '{$user->getName()}' mengembalikan 'Inception' (ID 1)...\n";
-$library->returnMedia(1, $user);
+echo "\n=== RIWAYAT PENGGUNA ===\n";
 
-echo "Koleksi '{$user->getName()}' yang tersisa:\n";
-$remainingCollection = $user->getCollection();
-if (empty($remainingCollection)) {
-    echo "(Kosong)\n";
-} else {
-    foreach ($remainingCollection as $item) {
-        echo "- [{$item->getType()}] {$item->getTitle()}\n";
-    }
+foreach ($user->getHistory() as $media) {
+    echo $media->getTitle() . "\n";
 }
-echo "\n";
-echo "Status media ID 1 di library: " . ($library->findById(1)->isAvailable() ? "Tersedia" : "Dipinjam") . "\n";
